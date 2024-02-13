@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import fetch from "node-fetch";
-import chalk from "chalk";
+import Console from "./cli/console.mjs";
 
 export default function branchSelect(callback) {
   fetch("https://backend.jzitnik.dev/klindos/branches/getAll")
@@ -16,12 +16,7 @@ export default function branchSelect(callback) {
           },
         ])
         .then((answers) => {
-          console.log(
-            chalk.cyan("Info:") +
-              " Byl vybráno sestavení '" +
-              answers.selectedOption +
-              "'",
-          );
+          Console.info(`Bylo vybárno sestavení '${answers.selectedOption}'`);
           callback(answers.selectedOption);
         })
         .catch((error) => {

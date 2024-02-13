@@ -1,27 +1,21 @@
 import { execSync } from "child_process";
 import chalk from "chalk";
+import Console from "../scripts/cli/console.mjs";
 
 export default function install() {
-  console.log("\n"+chalk.cyan("Info:") + " Začnínám instalovat KLIND OS.");
+  Console.newline();
+  Console.info("Začínám instalovat KLIND OS.")
   try {
     execSync("npm install", { cwd: "Client" });
-    console.log(
-      chalk.green("Success:") + " KLIND OS Client byl úspěšně nainstalován!",
-    );
+    Console.success("KLIND OS Client byl úspěšně nainstalován!")
   } catch (error) {
-    console.log(
-      chalk.red("Error:") + " KLIND OS Client se nepovedlo nainstalovat!",
-    );
+    Console.error("KLIND OS Client se nepovedlo nainstalovat!")
   }
 
   try {
     execSync("npm install", { cwd: "Server" });
-    console.log(
-      chalk.green("Success:") + " KLIND OS Server byl úspěšně nainstalován!",
-    );
+    Console.success("KLIND OS Server byl úspěšně nainstalován!")
   } catch (error) {
-    console.log(
-      chalk.red("Error:") + " KLIND OS Server se nepovedlo nainstalovat!",
-    );
+    Console.error("KLIND OS Server se nepovedlo nainstalovat!")
   }
 }

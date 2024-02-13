@@ -15,7 +15,7 @@
     "git-clone": "^0.2.0",
     "inquirer": "^9.2.14",
     "node-fetch": "^3.3.2",
-    "press-any-key": "^0.1.1",
+    "readline-sync": "^1.4.10",
     "util": "^0.12.5"
   },
   "devDependencies": {
