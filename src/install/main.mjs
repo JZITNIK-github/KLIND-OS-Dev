@@ -39,7 +39,7 @@ export default function installMain() {
           });
         } else {
           Console.error(
-            "Git nebyl nalezen! Prosím nainstalujte si NodeJS na: " +
+            "Git nebyl nalezen! Prosím nainstalujte si Git na: " +
               chalk.cyan("https://git-scm.com"),
           );
           pressEnter();

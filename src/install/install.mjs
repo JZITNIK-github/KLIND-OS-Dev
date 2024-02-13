@@ -1,5 +1,4 @@
 import { execSync } from "child_process";
-import chalk from "chalk";
 import Console from "../scripts/cli/console.mjs";
 
 export default function install() {
