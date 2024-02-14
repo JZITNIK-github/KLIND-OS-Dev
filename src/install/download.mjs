@@ -7,7 +7,6 @@ import Console from "../scripts/cli/console.mjs";
 const execPromise = promisify(exec);
 
 export default async function download(branch) {
-  Console.newline();
   Console.info("Začínám stahovat KLIND OS.");
 
   await execPromise(

@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import { exec } from "child_process";
-import pressEnter from "../scripts/pressEnter.mjs";
+import pressEnter from "../scripts/cli/pressEnter.mjs";
 import Console from "../scripts/cli/console.mjs";
 
 export default function run() {

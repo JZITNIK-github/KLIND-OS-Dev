@@ -1,16 +1,17 @@
-import testNodeJS from "../scripts/test/node.mjs";
-import testGit from "../scripts/test/git.mjs";
 import branchSelect from "../scripts/cli/branchSelect.mjs";
-import download from "./download.mjs";
-import install from "./install.mjs";
-import pressEnter from "../scripts/cli/pressEnter.mjs";
-import chalk from "chalk";
 import Console from "../scripts/cli/console.mjs";
+import pressEnter from "../scripts/cli/pressEnter.mjs";
+import testGit from "../scripts/test/git.mjs";
+import testNodeJS from "../scripts/test/node.mjs";
 import testBackend from "../scripts/test/backend.mjs";
-import fs from "fs";
+import download from "../install/download.mjs";
+import install from "../install/install.mjs";
 import timeout from "../scripts/timeout.mjs";
+import fs from "fs-extra";
 
-export default async function installMain() {
+export default async function changeBranch() {
+  Console.clear();
+
   const [nodejsInstalled, nodejsVersion] = await testNodeJS();
   if (!nodejsInstalled) {
     Console.error(
@@ -50,18 +51,20 @@ export default async function installMain() {
 
   Console.clear();
 
+  const promises = [
+    fs.remove("./Client"),
+    fs.remove("./Server"),
+  ];
+  await Promise.all(promises);
+
   await download(branch);
 
   await timeout(400);
   Console.clear();
   install();
 
-  fs.writeFileSync("installed.txt", "true");
-
   await timeout(500);
 
   Console.clear();
-  Console.success(
-    "KLIND OS byl nainstalován! Spusťte tento script znovu pro spuštění KLIND OS.",
-  );
+  Console.success("Branch byl upraven!");
 }

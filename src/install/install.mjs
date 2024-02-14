@@ -2,7 +2,6 @@ import { execSync } from "child_process";
 import Console from "../scripts/cli/console.mjs";
 
 export default function install() {
-  Console.newline();
   Console.info("Začínám instalovat KLIND OS.")
   try {
     execSync("npm install", { cwd: "Client" });

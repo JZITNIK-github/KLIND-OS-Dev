@@ -1,9 +1,10 @@
 import fs from "fs";
-import run from "./scripts/run.mjs";
 import installMain from "./install/main.mjs";
-import chalk from "chalk";
 import printLogo from "./scripts/cli/logo.mjs";
+import Console from "./scripts/cli/console.mjs";
+import runSelect from "./run/select.mjs";
 
+Console.clear();
 printLogo();
 
 try {
@@ -15,5 +16,5 @@ try {
 if (installed.trim() != "true") {
   installMain();
 } else {
-  run();
+  runSelect();
 }
