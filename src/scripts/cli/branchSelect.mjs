@@ -2,7 +2,7 @@ import inquirer from "inquirer";
 import fetch from "node-fetch";
 import Console from "./console.mjs";
 
-export default function branchSelect(callback) {
+export default function branchSelect() {
   return new Promise((resolve, reject) => {
     fetch("https://backend.jzitnik.dev/klindos/branches/getAll")
       .then((res) => res.json())
