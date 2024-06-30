@@ -5,7 +5,7 @@
   "main": "src/index.mjs",
   "scripts": {
     "dev": "node src/index.mjs",
-    "build": "ncc build src/index.mjs -o dist"
+    "build": "ncc build src/index.mjs -o dist && terser dist/index.mjs -o dev.mjs --compress --mangle && rm -r dist/* && mv dev.mjs dist"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +24,7 @@
     "util": "^0.12.5"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.38.1"
+    "@vercel/ncc": "^0.38.1",
+    "terser": "^5.31.1"
   }
 }
