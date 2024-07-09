@@ -4,7 +4,7 @@ import Console from "./console.mjs";
 
 export default function branchSelect() {
   return new Promise((resolve, reject) => {
-    fetch("https://backend.jzitnik.dev/klindos/branches/getAll")
+    fetch("https://klindos.jzitnik.dev/api/branches")
       .then((res) => res.json())
       .then((branches) => {
         inquirer

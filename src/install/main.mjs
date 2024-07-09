@@ -6,7 +6,6 @@ import install from "./install.mjs";
 import pressEnter from "../scripts/cli/pressEnter.mjs";
 import chalk from "chalk";
 import Console from "../scripts/cli/console.mjs";
-import testBackend from "../scripts/test/backend.mjs";
 import fs from "fs";
 import timeout from "../scripts/timeout.mjs";
 
@@ -32,14 +31,6 @@ export default async function installMain() {
     return;
   }
   Console.success(`Git verze ${gitVersion} je nalezen!`);
-
-  const backendWorking = await testBackend();
-  if (!backendWorking) {
-    Console.error("Připojení k backend nefunguje!");
-    pressEnter();
-    return;
-  }
-  Console.success("Připojení k Backend funguje!");
 
   await timeout(1000);
   Console.clear();
