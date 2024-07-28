@@ -9,6 +9,9 @@ export default async function uninstall() {
     fs.remove("./Client"),
     fs.remove("./Server"),
     fs.remove("./installed.txt"),
+    fs.remove("~/usrfiles"),
+    fs.remove("~/packages"),
+    fs.remove("~/appdata")
   ];
 
   await Promise.all(promises);

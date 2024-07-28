@@ -6,7 +6,7 @@ import install from "./install.mjs";
 import pressEnter from "../scripts/cli/pressEnter.mjs";
 import chalk from "chalk";
 import Console from "../scripts/cli/console.mjs";
-import fs from "fs";
+import fs from "fs/promises";
 import timeout from "../scripts/timeout.mjs";
 
 export default async function installMain() {
@@ -47,7 +47,12 @@ export default async function installMain() {
   Console.clear();
   install();
 
-  fs.writeFileSync("installed.txt", "true");
+  await Promise.all([
+    fs.writeFile("installed.txt", "true"),
+    fs.mkdir("~/packages"),
+    fs.mkdir("~/usrfiles"),
+    fs.mkdir("~/appdata"),
+  ]);
 
   await timeout(500);
 
