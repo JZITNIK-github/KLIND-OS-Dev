@@ -12,12 +12,12 @@ export default function branchSelect() {
             {
               type: "list",
               name: "selectedOption",
-              message: "Vyberte sestavení které chcete použít:",
+              message: "Select branch that you want to use:",
               choices: branches,
             },
           ])
           .then((answers) => {
-            Console.info(`Bylo vybárno sestavení '${answers.selectedOption}'`);
+            Console.info(`'${answers.selectedOption}' was selected.`);
             resolve(answers.selectedOption);
           })
           .catch((error) => {

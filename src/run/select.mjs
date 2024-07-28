@@ -2,11 +2,11 @@ import Console from "../scripts/cli/console.mjs";
 import inquirer from "inquirer";
 import timeout from "../scripts/timeout.mjs"
 import run from "./run.mjs";
-import reinstall from "./uninstall.mjs";
+import uninstall from "./uninstall.mjs";
 import changeBranch from "./changebranch.mjs";
 
 export default async function runSelect() {
-  Console.info("KLIND OS je nainstalován v této složce!");
+  Console.info("KLIND OS je is installed in this folder!");
 
   await timeout(400)
 
@@ -16,11 +16,11 @@ export default async function runSelect() {
     {
       type: "list",
       name: "selectedOption",
-      message: "Vyberte možnost:",
+      message: "Select option:",
       choices: [
-        "Spustit KLIND OS",
-        "Odinstalovat",
-        "Změnit sestavení KLIND OS",
+        "Start KLIND OS",
+        "Uninstall",
+        "Edit branch",
         "Exit",
       ],
     },
@@ -35,7 +35,7 @@ export default async function runSelect() {
   }
 
   if (answers.selectedOption == "Odinstalovat") {
-    await reinstall();
+    await uninstall();
   }
 
   if (answers.selectedOption == "Změnit sestavení KLIND OS") {

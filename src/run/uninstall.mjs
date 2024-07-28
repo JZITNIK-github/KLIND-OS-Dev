@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 
 export default async function uninstall() {
   Console.clear();
-  Console.info("Odinstalovávám KLIND OS!");
+  Console.info("Uninstalling KLIND OS!");
 
   const promises = [
     fs.remove("./Client"),
@@ -14,5 +14,5 @@ export default async function uninstall() {
   await Promise.all(promises);
 
   Console.clear();
-  Console.info("KLIND OS byl odinstalován!");
+  Console.info("KLIND OS byl uninstalled!");
 }

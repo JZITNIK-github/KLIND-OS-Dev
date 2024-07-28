@@ -2,18 +2,18 @@ import { execSync } from "child_process";
 import Console from "../scripts/cli/console.mjs";
 
 export default function install() {
-  Console.info("Začínám instalovat KLIND OS.")
+  Console.info("Starting to install KLIND OS.")
   try {
     execSync("npm install", { cwd: "Client" });
-    Console.success("KLIND OS Client byl úspěšně nainstalován!")
+    Console.success("KLIND OS Client was installed!")
   } catch (error) {
-    Console.error("KLIND OS Client se nepovedlo nainstalovat!")
+    Console.error("Error while installing KLIND OS Client!")
   }
 
   try {
     execSync("npm install", { cwd: "Server" });
-    Console.success("KLIND OS Server byl úspěšně nainstalován!")
+    Console.success("KLIND OS Server was installed!")
   } catch (error) {
-    Console.error("KLIND OS Server se nepovedlo nainstalovat!")
+    Console.error("Error while installing KLIND OS Server!")
   }
 }

@@ -22,10 +22,10 @@ export default async function run() {
 
   const clientProcess = exec("npm run dev", { cwd: "Client" });
   clientProcess.on("exit", () => {
-    Console.info("Client byl ukončen! Vypínám server!");
+    Console.info("Client ended! Turning off server!");
     serverProcess.kill();
     Console.newline();
-    Console.info("KLIND OS byl ukončen!");
+    Console.info("KLIND OS was ended!");
     pressEnter();
     process.exit(0);
   });

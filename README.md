@@ -1,10 +1,10 @@
 # KLIND OS Developers Installer
 
-Toto je script pro KLIND OS Developers installer.
+This is the script for the KLIND OS Developers installer.
 
 ## Download
 
-Postavený script si můžete stáhnout na oficiální KLIND OS stránce.
+You can download the built script on the official KLIND OS page.
 
 ## Build
 

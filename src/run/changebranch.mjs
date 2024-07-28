@@ -14,24 +14,24 @@ export default async function changeBranch() {
   const [nodejsInstalled, nodejsVersion] = await testNodeJS();
   if (!nodejsInstalled) {
     Console.error(
-      "NodeJS nebyl nalezen! Prosím nainstalujte si NodeJS na: " +
+      "Node.js wasn't found. Please install Node.js here: " +
         chalk.cyan("https://nodejs.org"),
     );
     pressEnter();
     return;
   }
-  Console.success(`NodeJS verze ${nodejsVersion} je nalezen!`);
+  Console.success(`Node.js version ${nodejsVersion} was found!`);
 
   const [gitInstalled, gitVersion] = await testGit();
   if (!gitInstalled) {
     Console.error(
-      "Git nebyl nalezen! Prosím nainstalujte si Git na: " +
+      "Git wasn't found! Please install Git here: " +
         chalk.cyan("https://git-scm.com"),
     );
     pressEnter();
     return;
   }
-  Console.success(`Git verze ${gitVersion} je nalezen!`);
+  Console.success(`Git version ${gitVersion} was found!`);
 
   await timeout(1000);
   Console.clear();
@@ -57,5 +57,5 @@ export default async function changeBranch() {
   await timeout(500);
 
   Console.clear();
-  Console.success("Branch byl upraven!");
+  Console.success("Branch was edited!");
 }
