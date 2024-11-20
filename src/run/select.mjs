@@ -30,15 +30,15 @@ export default async function runSelect() {
     process.exit(0);
   }
 
-  if (answers.selectedOption == "Spustit KLIND OS") {
+  if (answers.selectedOption == "Start KLIND OS") {
     run();
   }
 
-  if (answers.selectedOption == "Odinstalovat") {
+  if (answers.selectedOption == "Uninstall") {
     await uninstall();
   }
 
-  if (answers.selectedOption == "Změnit sestavení KLIND OS") {
+  if (answers.selectedOption == "Edit branch") {
     await changeBranch();
   }
 }
